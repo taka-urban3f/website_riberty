@@ -1,0 +1,47 @@
+//////////////////////////////////////////////////////////////
+/// _base.scss
+//////////////////////////////////////////////////////////////
+
+
+
+$device_types: ('tab': 'screen and (min-width: 768px)', 'pc': 'screen and (min-width: 1200px)');
+
+@function px_to_rem($pixel) {
+    //引数は単位なしのピクセル数を指定する
+    @return $pixel / 16 * 1rem;
+}
+
+@mixin mq($device) {
+    @media #{map-get($device_types, $device)} {
+        @content;
+    }
+}
+
+
+html {
+    font-size: 100%;
+
+    font-family: "Zen Maru Gothic",
+        "Helvetica Neue",
+        Arial,
+        "Hiragino Kaku Gothic ProN",
+        "Hiragino Sans",
+        Meiryo, sans-serif;
+    font-weight: 500;
+    // font-weight: 700;
+    font-style: normal;
+
+    letter-spacing: 0;
+    line-height: 1.5;
+
+    scroll-behavior: smooth;
+}
+
+dt {
+    font-weight: inherit;
+}
+
+img {
+    width: 100%;
+    vertical-align: top;
+}
