@@ -2,7 +2,9 @@
 /// _base.scss
 //////////////////////////////////////////////////////////////
 
-
+$mainBlue: #12AFD6;
+$darkBlue: #00579B;
+$yellow: #EBFF00;
 
 $device_types: ('tab': 'screen and (min-width: 768px)', 'pc': 'screen and (min-width: 1200px)');
 
@@ -15,6 +17,11 @@ $device_types: ('tab': 'screen and (min-width: 768px)', 'pc': 'screen and (min-w
     @media #{map-get($device_types, $device)} {
         @content;
     }
+}
+
+@mixin common_padding_sp {
+    padding-left: 5px;
+    padding-right: 5px;
 }
 
 

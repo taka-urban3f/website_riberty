@@ -5,4 +5,27 @@
 @use "../../foundation/base";
 
 //////////////////////////////////////////////////////////////
-/// .c-price
+/// .c-humBtn
+.c-humBtn {
+    &__box {
+
+    }
+
+    &__line {
+        display: block;
+        height: 3px;
+        width: 44px;
+        background-color: white;
+
+    }
+
+    &__line + &__line {
+        margin-top: 11px;
+    }
+
+    &__text {
+        font-weight: 700;
+        font-size: base.px_to_rem(12);
+        color: white;
+    }
+}

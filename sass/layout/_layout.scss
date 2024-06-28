@@ -6,3 +6,63 @@
 
 //////////////////////////////////////////////////////////////
 /// .l-header
+.l-header {
+    &__bar {
+        position: relative;
+        height: 73px;
+        background-color: base.$mainBlue;
+        @include base.common_padding_sp;
+    }
+
+    &__h1 {
+        position: absolute;
+        width: 197px;
+        left: 50%;
+        top: 22px;
+        transform: translateX(-50%);
+        z-index: 1;
+    }
+
+    &__btn {
+        padding-top: 11px;
+        width: fit-content;
+        margin-left: auto;
+    }
+
+    &__hero {
+        position: relative;
+        height: 64.2vw;
+        background-image: url(../img/sp/hero_sp.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+
+        &__h2 {
+            position: absolute;
+            top: 40%;
+            left: 25%;
+            // font-size: base.px_to_rem(14.4);
+            font-size: 3.8vw;
+            color: base.$darkBlue;
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+            text-align: right;
+        }
+
+        &__span1 {
+            display: inline-block;
+            // font-size: base.px_to_rem(22);
+            font-size: 5.8vw;
+            color: rgba(0, 0, 0, 0);
+            font-weight: 700;
+            -webkit-text-stroke: 1.36px white;
+            text-shadow: 1px 1px 4px rgba(base.$darkBlue, 0.1);
+            transform: rotate(8.04deg) translateY(-5px);
+        }
+
+        &__span2 {
+            // font-size: base.px_to_rem(20);
+            font-size: 5.3vw;
+            font-weight: 700;
+        }
+    }
+}
