@@ -5,4 +5,51 @@
 @use "../../foundation/base";
 
 //////////////////////////////////////////////////////////////
-/// .p-
+/// .p-secFeature
+.p-secFeature {
+    &__h2 {
+        position: relative;
+        height: 51vw;
+        background-image: url(../img/fukidashi1.svg), linear-gradient(base.$mainBlue 0%, base.$mainBlue 100%);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 87%, cover;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        // font-size: 3.1vw;
+        // letter-spacing: 0.03em;
+
+        // &__p1 {
+        //     color: base.$darkBlue;
+        //     -webkit-text-stroke:  1px white;
+        //     transform: rotate(-2.95deg);
+            
+        //     margin-bottom: 10px;
+        // }
+
+        // &__p2 {
+        //     color: base.$darkBlue;
+        //     transform: rotate(-2.95deg);
+        //     margin-left: 19px;
+        // }
+
+        // &__span {
+        //     font-size: 4.6vw;
+        // }
+
+        &__img1 {
+            width: 81.8vw;
+        }
+
+        &__img2 {
+            position: absolute;
+            width: 23vw;
+            top: 84%;
+            left: -1.5%;
+            transform: rotate(13.46deg);
+        }
+    }
+}
