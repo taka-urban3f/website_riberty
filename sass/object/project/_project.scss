@@ -4,6 +4,43 @@
 
 @use "../../foundation/base";
 
+
+@mixin catch_ctn_setting {
+    position: relative;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 4.2vw;
+    color: base.$darkBlue;
+    text-align: center;
+
+    &::before {
+        content: '';
+        position: absolute;
+        width: 4vw;
+        height: 4.5vw;
+        left: -6vw;
+        bottom: 1.3vw;
+        background-image: url(../img/line_left.svg);
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        width: 4vw;
+        height: 4.5vw;
+        right: -6vw;
+        bottom: 1.3vw;
+        background-image: url(../img/line_right.svg);
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+    }
+}
+
 //////////////////////////////////////////////////////////////
 /// .p-secFeature
 .p-secFeature {
@@ -19,27 +56,6 @@
         justify-content: center;
         align-items: center;
 
-        // font-size: 3.1vw;
-        // letter-spacing: 0.03em;
-
-        // &__p1 {
-        //     color: base.$darkBlue;
-        //     -webkit-text-stroke:  1px white;
-        //     transform: rotate(-2.95deg);
-            
-        //     margin-bottom: 10px;
-        // }
-
-        // &__p2 {
-        //     color: base.$darkBlue;
-        //     transform: rotate(-2.95deg);
-        //     margin-left: 19px;
-        // }
-
-        // &__span {
-        //     font-size: 4.6vw;
-        // }
-
         &__img1 {
             width: 81.8vw;
         }
@@ -51,5 +67,26 @@
             left: -1.5%;
             transform: rotate(13.46deg);
         }
+    }
+
+    &__boxCatch {
+        padding: 27vw 0 11vw;
+        background-image: url(../img/star1.svg), url(../img/star2.svg), url(../img/star3.svg);
+        background-repeat: no-repeat;
+        background-size: 18vw 18vw, 41vw 41vw, 43vw 43vw;
+        background-position: 109% 51%, -12% 210%, 87% -69%;
+    }
+
+    &__catch1 {
+        @include catch_ctn_setting;
+    }
+
+    &__catch2 {
+        margin-top: 5.6vw;
+        @include catch_ctn_setting;
+    }
+
+    &__wrapper {
+        @include base.common_padding_sp;
     }
 }
