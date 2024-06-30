@@ -7,9 +7,7 @@
 //////////////////////////////////////////////////////////////
 /// .c-humBtn
 .c-humBtn {
-    &__box {
-
-    }
+    &__box {}
 
     &__line {
         display: block;
@@ -19,7 +17,7 @@
 
     }
 
-    &__line + &__line {
+    &__line+&__line {
         margin-top: 11px;
     }
 
@@ -27,5 +25,68 @@
         font-weight: 700;
         font-size: base.px_to_rem(12);
         color: white;
+    }
+}
+
+//////////////////////////////////////////////////////////////
+/// .c-hDeco
+.c-hDeco {
+    $this: &;
+
+    &__ctn {
+        position: relative;
+        width: fit-content;
+        margin: 0 auto;
+
+        &::before {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 7px;
+            top: 50%;
+            left: -85px;
+            background-image: url(../img/text_deco.svg);
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
+            transform: translateY(-50%);
+
+            #{$this}--mini & {
+                width: 43px;
+                height: 4px;
+                left: -48px;
+            }
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 7px;
+            top: 50%;
+            right: -85px;
+            background-image: url(../img/text_deco.svg);
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
+            transform: translateY(-50%);
+
+            #{$this}--mini & {
+                width: 43px;
+                height: 4px;
+                right: -48px;
+            }
+        }
+    }
+
+    &__imgText {
+        height: base.px_to_rem(52);
+        width: auto;
+    }
+
+    &__p {
+        font-size: base.px_to_rem(20);
+        color: base.$mainBlue;
+        text-align: center;
     }
 }

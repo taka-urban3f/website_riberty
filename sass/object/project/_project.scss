@@ -44,6 +44,8 @@
 //////////////////////////////////////////////////////////////
 /// .p-secFeature
 .p-secFeature {
+    padding-bottom: 13vw;
+
     &__h2 {
         position: relative;
         height: 51vw;
@@ -105,6 +107,43 @@
             padding: calc(37vw + base.px_to_rem(8)) base.px_to_rem(17) base.px_to_rem(56);
             border: 1px solid base.$yellow;
             border-radius: 13vw;
+        }
+    }
+}
+
+//////////////////////////////////////////////////////////////
+/// .p-secLineup
+.p-secLineup {
+    border-top: 17px solid base.$mainBlue;
+    padding-top: 70px;
+
+    &__grid {
+        margin-top: 56px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, 245px);
+        justify-content: center;
+        gap: 39px;
+
+        &__box {
+            border: 1px solid base.$gray;
+            border-radius: 27px;
+            overflow: hidden;
+            font-size: base.px_to_rem(17);
+            color: base.$dark_gray;
+        }
+
+        &__img {
+            display: block;
+            width: 39%;
+            margin: 31px auto 22px;
+        }
+
+        &__name {
+            margin: 0px 16px 9px;
+        }
+
+        &__price {
+            margin: 0px 16px 31px;
         }
     }
 }
