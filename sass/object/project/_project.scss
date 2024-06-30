@@ -105,6 +105,7 @@
             margin-left: auto;
             margin-top: -37vw;
             padding: calc(37vw + base.px_to_rem(8)) base.px_to_rem(17) base.px_to_rem(56);
+            color: base.$darkBlue;
             border: 1px solid base.$yellow;
             border-radius: 13vw;
         }
@@ -129,7 +130,7 @@
             border-radius: 27px;
             overflow: hidden;
             font-size: base.px_to_rem(17);
-            color: base.$dark_gray;
+            color: base.$darkGray;
         }
 
         &__img {
