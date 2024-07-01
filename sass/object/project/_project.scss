@@ -248,3 +248,44 @@
         margin: 84px auto 0;
     }
 }
+
+//////////////////////////////////////////////////////////////
+/// .p-secBanne
+.p-secBanner {
+    margin-top: 152px;
+}
+
+//////////////////////////////////////////////////////////////
+/// .p-secInformation
+.p-secInformation {
+    margin-top: 184px;
+    @include base.common_padding_sp;
+    color: base.$darkBlue;
+
+    &__p1 {
+        margin-top: 56px;
+        margin-bottom: 36px;
+        font-size: base.px_to_rem(24);
+    }
+
+    &__cnt {
+        display: flex;
+
+        &:not(:last-of-type) {
+            margin-bottom: 23px;
+        }
+    }
+
+    &__imgLogo {
+        display: block;
+        width: 81vw;
+        margin: 36px auto;
+    }
+
+    &__map {
+        iframe {
+            width: 100%;
+            height: 75vw;
+        }
+    }
+}
