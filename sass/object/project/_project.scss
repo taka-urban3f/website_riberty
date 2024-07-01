@@ -116,6 +116,7 @@
 /// .p-secLineup
 .p-secLineup {
     border-top: 17px solid base.$mainBlue;
+    @include base.common_padding_sp;
     padding-top: 70px;
 
     &__grid {
