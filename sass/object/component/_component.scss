@@ -90,3 +90,17 @@
         text-align: center;
     }
 }
+
+//////////////////////////////////////////////////////////////
+/// .c-btn
+.c-btn {
+    display: block;
+    width: fit-content;
+    min-width: 294px;
+    padding: 18px 37px;
+    background-color: base.$darkBlue;
+    border-radius: 27px;
+    text-align: center;
+    font-size: base.px_to_rem(24);
+    color: white;
+}
