@@ -152,3 +152,68 @@
         margin: 84px auto 0;
     }
 }
+
+//////////////////////////////////////////////////////////////
+/// .p-secBlog
+.p-secBlog {
+    margin-top: 235px;
+    @include base.common_padding_sp;
+
+    &__box {
+        padding: 14px 11px 14px;
+        background-color: base.$mainBlue;
+        border-radius: 27px;
+    }
+
+    &__h2 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 42px;
+
+        &__imgFace {
+            width: 130px;
+        }
+        &__imgText {
+            margin-top: -47px;
+            width: 315px;
+        }
+    }
+
+    &__fukidashi {
+        position: relative;
+        padding: 18px 27px;
+        // width: 90%;
+        margin-right: 0;
+        margin-left: 35px;
+        background-color: white;
+        border-radius: 27px;
+        font-size: base.px_to_rem(18);
+        color: base.$darkBlue;
+
+        & + & {
+            margin-top: 20px;
+        }
+
+        &:before {
+            position: absolute;
+            content: '';
+            width: 35px;
+            height: 43px;
+            top: 20px;
+            left: -33px;
+            background-image: url(../img/part_fukidashi.svg);
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: right;
+        }
+
+        &__dt {
+            margin-bottom: 13px;
+        }
+    }
+
+    &__btn {
+        margin: 42px auto 0;
+    }
+}
