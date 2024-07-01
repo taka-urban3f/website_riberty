@@ -174,6 +174,7 @@
         &__imgFace {
             width: 130px;
         }
+
         &__imgText {
             margin-top: -47px;
             width: 315px;
@@ -191,7 +192,7 @@
         font-size: base.px_to_rem(18);
         color: base.$darkBlue;
 
-        & + & {
+        &+& {
             margin-top: 20px;
         }
 
@@ -215,5 +216,35 @@
 
     &__btn {
         margin: 42px auto 0;
+    }
+}
+
+//////////////////////////////////////////////////////////////
+/// .p-secNews
+.p-secNews {
+    margin-top: 184px;
+    @include base.common_padding_sp;
+
+    &__h2 {
+        margin-bottom: 56px;
+    }
+
+    &__dl {
+        padding: 15px 28px;
+        font-size: base.px_to_rem(18);
+        color: base.$darkBlue;
+        border-top: 1px solid base.$mainBlue;
+
+        &:last-of-type {
+            border-bottom: 1px solid base.$mainBlue;
+        }
+    }
+
+    &__dt {
+        margin-bottom: 9px;
+    }
+
+    &__btn {
+        margin: 84px auto 0;
     }
 }
