@@ -7,14 +7,27 @@
 //////////////////////////////////////////////////////////////
 /// .c-humBtn
 .c-humBtn {
-    &__box {}
+    $this: &;
 
     &__line {
         display: block;
         height: 3px;
         width: 44px;
         background-color: white;
+        transition: transform 0.3s ease;
+        transform-origin: left;
 
+        #{$this}--open &:nth-of-type(1) {
+            transform: translate(6px, 0) rotate(45deg);
+        }
+
+        #{$this}--open &:nth-of-type(2) {
+            transform: scale(0)
+        }
+
+        #{$this}--open &:nth-of-type(3) {
+            transform: translate(6px, 3px) rotate(-45deg);
+        }
     }
 
     &__line+&__line {
@@ -22,9 +35,11 @@
     }
 
     &__text {
+        margin-top: 3px;
         font-weight: 700;
         font-size: base.px_to_rem(12);
         color: white;
+        text-align: center;
     }
 }
 
