@@ -41,7 +41,7 @@
 
     &__ul {
         display: none;
-        max-width: 1074px;
+        max-width: base.$maxWidth;
         margin: 0 auto;
         font-size: base.px_to_rem(20);
         color: white;
@@ -175,6 +175,16 @@
         display: flex;
         justify-content: center;
         gap: 0 38px;
+
+        @include base.mq(pc) {
+            height: 57px;
+            gap: 0 62px;
+        }
+
+        &__img {
+            width: auto;
+            height: 100%;
+        }
     }
 
     &__ul {
@@ -191,6 +201,15 @@
             justify-content: space-between;
             gap: 0;
             width: 100%;
+        }
+
+        @include base.mq(tab) {
+            flex-direction: row;
+            justify-content: space-between;
+            gap: 0;
+            width: 100%;
+            max-width: 754px;
+            margin: 0 auto;
         }
     }
 

@@ -13,7 +13,7 @@
     font-size: 4.2vw;
     color: base.$darkBlue;
     text-align: center;
-    
+
     @include base.mq(tab) {
         font-size: base.px_to_rem(23);
     }
@@ -156,6 +156,8 @@
         }
 
         @include base.mq(pc) {
+            max-width: base.$maxWidth;
+            margin: 0 auto;
             padding: 167px 0 70px;
             background-size: 105px 105px, 324px 324px;
             background-position: top 267px right 30px, right 50px top -175px;
@@ -187,6 +189,8 @@
 
     &__wrapper {
         position: relative;
+        max-width: base.$maxWidth;
+        margin: 0 auto;
         @include base.common_padding;
 
         @include base.mq(tab) {
@@ -224,7 +228,7 @@
 
     &__ctn1 {
         @include base.mq(tab) {
-            margin-top: 5.2vw;
+            margin-top: 5.5%;
             width: 42%;
         }
     }
@@ -312,12 +316,18 @@
     @include base.common_padding;
 
     &__box {
+        max-width: base.$maxWidth;
+        margin: 0 auto;
         padding: 14px 11px 14px;
         background-color: base.$mainBlue;
         border-radius: 27px;
 
         @include base.mq(tab) {
             padding: 14px 20px 49px;
+        }
+
+        @include base.mq(pc) {
+            padding: 14px 67px 49px 20px;
         }
     }
 
@@ -352,7 +362,6 @@
     &__fukidashi {
         position: relative;
         padding: 18px 27px;
-        // width: 90%;
         margin-right: 0;
         margin-left: 35px;
         background-color: white;
@@ -362,6 +371,11 @@
 
         &+& {
             margin-top: 20px;
+        }
+
+        @include base.mq(pc) {
+            display: flex;
+            padding: 44px 57px;
         }
 
         &:before {
@@ -379,11 +393,19 @@
 
         &__dt {
             margin-bottom: 13px;
+
+            @include base.mq(pc) {
+                margin-bottom: 0px;
+            }
         }
 
         &__dd {
             @include base.mq(tab) {
                 margin-left: 47px;
+            }
+
+            @include base.mq(pc) {
+                margin-left: 56px;
             }
         }
     }
@@ -404,6 +426,8 @@
     }
 
     &__dl {
+        max-width: base.$maxWidth;
+        margin: 0 auto;
         padding: 15px 28px;
         font-size: base.px_to_rem(18);
         color: base.$darkBlue;
@@ -416,6 +440,10 @@
         @include base.mq(tab) {
             display: flex;
             padding: 35px 28px;
+        }
+
+        @include base.mq(pc) {
+            padding: 35px 28px 35px 77px;
         }
     }
 
@@ -436,13 +464,15 @@
 //////////////////////////////////////////////////////////////
 /// .p-secBanne
 .p-secBanner {
-    margin-top: 152px;
+    max-width: base.$maxWidth;
+    margin: 152px auto 0;
 }
 
 //////////////////////////////////////////////////////////////
 /// .p-secInformation
 .p-secInformation {
-    margin-top: 184px;
+    max-width: base.$maxWidth;
+    margin: 184px auto 0;
     @include base.common_padding;
     color: base.$darkBlue;
 
@@ -487,6 +517,10 @@
 
             @include base.mq(tab) {
                 height: 53vw;
+            }
+
+            @include base.mq(tab) {
+                height: 33vw;
             }
         }
     }

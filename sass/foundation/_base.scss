@@ -8,6 +8,8 @@ $yellow: #EBFF00;
 $gray: #C1C1C1;
 $darkGray: #333333;
 
+$maxWidth: 1080px;
+
 $device_types: ('tab': 'screen and (min-width: 768px)', 'pc': 'screen and (min-width: 1200px)');
 
 @function px_to_rem($pixel) {
