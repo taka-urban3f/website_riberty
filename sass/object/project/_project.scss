@@ -274,6 +274,10 @@
         padding: 14px 11px 14px;
         background-color: base.$mainBlue;
         border-radius: 27px;
+
+        @include base.mq(tab) {
+            padding: 14px 20px 49px;
+        }
     }
 
     &__h2 {
@@ -282,6 +286,13 @@
         align-items: center;
         margin-bottom: 42px;
 
+        @include base.mq(tab) {
+            flex-direction: row;
+            justify-content: center;
+            align-items: flex-start;
+            margin-bottom: 26px;
+        }
+
         &__imgFace {
             width: 130px;
         }
@@ -289,6 +300,11 @@
         &__imgText {
             margin-top: -47px;
             width: 315px;
+
+            @include base.mq(tab) {
+                margin-top: 4px;
+                margin-left: -17px;
+            }
         }
     }
 
@@ -323,6 +339,12 @@
         &__dt {
             margin-bottom: 13px;
         }
+
+        &__dd {
+            @include base.mq(tab) {
+                margin-left: 47px;
+            }
+        }
     }
 
     &__btn {
@@ -349,10 +371,20 @@
         &:last-of-type {
             border-bottom: 1px solid base.$mainBlue;
         }
+
+        @include base.mq(tab) {
+            display: flex;
+            padding: 35px 28px;
+        }
     }
 
     &__dt {
         margin-bottom: 9px;
+
+        @include base.mq(tab) {
+            margin-bottom: 0;
+            margin-right: 87px;
+        }
     }
 
     &__btn {
@@ -379,7 +411,15 @@
         font-size: base.px_to_rem(24);
     }
 
-    &__cnt {
+    &__flex {
+        @include base.mq(tab) {
+            margin-bottom: 55px;
+            display: flex;
+            align-items: flex-start;
+        }
+    }
+
+    &__ctn {
         display: flex;
 
         &:not(:last-of-type) {
@@ -391,12 +431,22 @@
         display: block;
         width: 81vw;
         margin: 36px auto;
+
+        @include base.mq(tab) {
+            width: 303px;
+            margin: 0;
+            margin-left: 67px;
+        }
     }
 
     &__map {
         iframe {
             width: 100%;
             height: 75vw;
+
+            @include base.mq(tab) {
+                height: 53vw;
+            }
         }
     }
 }
