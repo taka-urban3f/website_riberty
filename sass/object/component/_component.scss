@@ -70,6 +70,18 @@
                 width: 43px;
                 height: 4px;
                 left: -48px;
+
+                @include base.mq(tab) {
+                    width: 175px;
+                    height: 16px;
+                    left: -180px;
+                }
+            }
+
+            @include base.mq(tab) {
+                width: 175px;
+                height: 16px;
+                left: -180px;
             }
         }
 
@@ -90,6 +102,18 @@
                 width: 43px;
                 height: 4px;
                 right: -48px;
+
+                @include base.mq(tab) {
+                    width: 175px;
+                    height: 16px;
+                    right: -180px;
+                }
+            }
+
+            @include base.mq(tab) {
+                width: 175px;
+                height: 16px;
+                right: -180px;
             }
         }
     }
@@ -97,12 +121,20 @@
     &__imgText {
         height: base.px_to_rem(52);
         width: auto;
+
+        @include base.mq(tab) {
+            height: base.px_to_rem(72);
+        }
     }
 
     &__p {
         font-size: base.px_to_rem(20);
         color: base.$mainBlue;
         text-align: center;
+
+        @include base.mq(tab) {
+            font-size: base.px_to_rem(24);
+        }
     }
 }
 

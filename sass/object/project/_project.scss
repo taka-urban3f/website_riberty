@@ -25,6 +25,13 @@
         background-repeat: no-repeat;
         background-size: contain;
         background-position: center;
+
+        @include base.mq(tab) {
+            width: 23px;
+            height: 28px;
+            left: -37px;
+            bottom: 2px;
+        }
     }
 
     &::after {
@@ -38,6 +45,13 @@
         background-repeat: no-repeat;
         background-size: contain;
         background-position: center;
+
+        @include base.mq(tab) {
+            width: 23px;
+            height: 28px;
+            right: -37px;
+            bottom: 2px;
+        }
     }
 }
 
@@ -45,6 +59,10 @@
 /// .p-secFeature
 .p-secFeature {
     padding-bottom: 13vw;
+
+    @include base.mq(tab) {
+        padding-bottom: 50px;
+    }
 
     &__h2 {
         position: relative;
@@ -65,7 +83,7 @@
 
         &__img1 {
             width: 81.8vw;
-            
+
             @include base.mq(tab) {
                 width: 74vw;
             }
@@ -87,41 +105,119 @@
 
     &__boxCatch {
         padding: 27vw 0 11vw;
-        background-image: url(../img/star1.svg), url(../img/star2.svg), url(../img/star3.svg);
+        // background-image: url(../img/star1.svg), url(../img/star2.svg), url(../img/star3.svg);
+        // background-repeat: no-repeat;
+        // background-size: 18vw 18vw, 41vw 41vw, 43vw 43vw;
+        // background-position: 109% 51%, -12% 210%, 87% -69%;
+
+        // @include base.mq(tab) {
+        //     padding: 170px 0 48px;
+        //     background-size: 105px 105px, 176px 176px, 264px 264px;
+        //     background-position: top 175px right -37px, 78px 292px, right 60px top -124px;
+        // }
+        background-image: url(../img/star1.svg), url(../img/star3.svg);
         background-repeat: no-repeat;
-        background-size: 18vw 18vw, 41vw 41vw, 43vw 43vw;
-        background-position: 109% 51%, -12% 210%, 87% -69%;
+        background-size: 18vw 18vw, 43vw 43vw;
+        background-position: 109% 51%, 87% -69%;
+
+        @include base.mq(tab) {
+            padding: 170px 0 48px;
+            background-size: 105px 105px, 264px 264px;
+            background-position: top 175px right -37px, right 60px top -124px;
+        }
     }
 
     &__catch1 {
         @include catch_ctn_setting;
+
+        @include base.mq(tab) {
+            font-size: base.px_to_rem(23);
+        }
     }
 
     &__catch2 {
         margin-top: 5.6vw;
         @include catch_ctn_setting;
+
+        @include base.mq(tab) {
+            margin-top: 40px;
+            font-size: base.px_to_rem(23);
+        }
+    }
+
+    &__br {
+        @include base.mq(tab) {
+            display: none;
+        }
     }
 
     &__wrapper {
-        @include base.common_padding_sp;
+        position: relative;
+        @include base.common_padding;
+
+        @include base.mq(tab) {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        &:before {
+            position: absolute;
+            content: '';
+            width: 41vw;
+            height: 41vw;
+            top: -11vw;
+            left: -7.2vw;
+            background-image: url(../img/star2.svg);
+            background-repeat: no-repeat;
+            background-size: contain;
+            z-index: -1;
+
+            @include base.mq(tab) {
+                width: 176px;
+                height: 176px;
+                top: -32px;
+                left: 78px;
+            }
+        }
     }
 
-    &__container {
+    &__ctn1 {
+        @include base.mq(tab) {
+            margin-top: 5.2vw;
+            width: 42%;
+        }
+    }
+
+    &__ctn2 {
         margin-top: 7vw;
+
+        @include base.mq(tab) {
+            margin-top: 0;
+            width: 53%;
+        }
 
         &__img {
             width: 90%;
+
+            @include base.mq(tab) {
+                width: 85%;
+            }
         }
 
         &__p {
-            width: 93vw;
+            width: 95%;
             margin-right: 0;
             margin-left: auto;
-            margin-top: -37vw;
-            padding: calc(37vw + base.px_to_rem(8)) base.px_to_rem(17) base.px_to_rem(56);
+            margin-top: -38%;
+            padding: calc(38% + 8px) 17px 56px;
             color: base.$darkBlue;
             border: 1px solid base.$yellow;
-            border-radius: 13vw;
+            border-radius: 55px;
+
+            @include base.mq(tab) {
+                margin-top: -35%;
+                padding: calc(38% + 12px) 17px 56px;
+            }
         }
     }
 }
@@ -130,7 +226,7 @@
 /// .p-secLineup
 .p-secLineup {
     border-top: 17px solid base.$mainBlue;
-    @include base.common_padding_sp;
+    @include base.common_padding;
     padding-top: 70px;
 
     &__grid {
@@ -172,7 +268,7 @@
 /// .p-secBlog
 .p-secBlog {
     margin-top: 235px;
-    @include base.common_padding_sp;
+    @include base.common_padding;
 
     &__box {
         padding: 14px 11px 14px;
@@ -238,7 +334,7 @@
 /// .p-secNews
 .p-secNews {
     margin-top: 184px;
-    @include base.common_padding_sp;
+    @include base.common_padding;
 
     &__h2 {
         margin-bottom: 56px;
@@ -274,7 +370,7 @@
 /// .p-secInformation
 .p-secInformation {
     margin-top: 184px;
-    @include base.common_padding_sp;
+    @include base.common_padding;
     color: base.$darkBlue;
 
     &__p1 {

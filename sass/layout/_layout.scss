@@ -11,7 +11,7 @@
         position: relative;
         height: 73px;
         background-color: base.$mainBlue;
-        @include base.common_padding_sp;
+        @include base.common_padding;
         z-index: 2;
     }
 
