@@ -33,6 +33,32 @@
         width: fit-content;
         margin-right: 0;
         margin-left: auto;
+
+        @include base.mq(pc) {
+            display: none;
+        }
+    }
+
+    &__ul {
+        display: none;
+        max-width: 1074px;
+        margin: 0 auto;
+        font-size: base.px_to_rem(20);
+        color: white;
+
+        @include base.mq(pc) {
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+
+        &__li:not(:last-of-type) {
+            margin-right: 77px;
+        }
+
+        &__li:nth-of-type(2) {
+            margin-right: 400px;
+        }
     }
 
     &__hero {
@@ -46,6 +72,11 @@
         @include base.mq(tab) {
             height: 47vw;
             background-image: url(../img/tab/hero_tab.jpg);
+        }
+
+        @include base.mq(pc) {
+            height: 30vw;
+            background-image: url(../img/hero_pc.jpg);
         }
 
         &__h2 {
@@ -62,6 +93,12 @@
                 font-size: 3vw;
                 left: 31%;
             }
+
+            @include base.mq(pc) {
+                font-size: 2.4vw;
+                top: 32.3%;
+                left: 43.5vw;
+            }
         }
 
         &__img {
@@ -73,6 +110,11 @@
                 width: 17vw;
                 transform: translateY(-10%);
             }
+
+            @include base.mq(pc) {
+                width: 12.5vw;
+                transform: translateY(-7%);
+            }
         }
 
         &__span {
@@ -81,6 +123,10 @@
 
             @include base.mq(tab) {
                 font-size: 4.2vw;
+            }
+
+            @include base.mq(tab) {
+                font-size: 3.3vw;
             }
         }
     }

@@ -13,6 +13,14 @@
     font-size: 4.2vw;
     color: base.$darkBlue;
     text-align: center;
+    
+    @include base.mq(tab) {
+        font-size: base.px_to_rem(23);
+    }
+
+    @include base.mq(pc) {
+        font-size: base.px_to_rem(28.8);
+    }
 
     &::before {
         content: '';
@@ -30,6 +38,13 @@
             width: 23px;
             height: 28px;
             left: -37px;
+            bottom: 2px;
+        }
+
+        @include base.mq(pc) {
+            width: 29px;
+            height: 33px;
+            left: -45px;
             bottom: 2px;
         }
     }
@@ -50,6 +65,13 @@
             width: 23px;
             height: 28px;
             right: -37px;
+            bottom: 2px;
+        }
+
+        @include base.mq(pc) {
+            width: 29px;
+            height: 33px;
+            right: -45px;
             bottom: 2px;
         }
     }
@@ -74,18 +96,30 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-        align-items: center;
+        // align-items: center;
 
         @include base.mq(tab) {
             background-image: url(../img/fukidashi1.svg), linear-gradient(base.$mainBlue 0%, base.$mainBlue 100%);
             background-size: 64%, cover;
         }
 
+        @include base.mq(pc) {
+            background-image: url(../img/fukidashi1.svg), linear-gradient(base.$mainBlue 0%, base.$mainBlue 100%);
+            background-size: 63.8%, cover;
+        }
+
         &__img1 {
             width: 81.8vw;
+            margin-left: 10.1vw;
 
             @include base.mq(tab) {
                 width: 74vw;
+                margin-left: 17.5vw;
+            }
+
+            @include base.mq(pc) {
+                width: 61vw;
+                margin-left: 20.5vw;
             }
         }
 
@@ -100,21 +134,16 @@
                 width: 26vw;
                 top: 52%;
             }
+
+            @include base.mq(pc) {
+                width: 24.3vw;
+                top: 50%;
+            }
         }
     }
 
     &__boxCatch {
         padding: 27vw 0 11vw;
-        // background-image: url(../img/star1.svg), url(../img/star2.svg), url(../img/star3.svg);
-        // background-repeat: no-repeat;
-        // background-size: 18vw 18vw, 41vw 41vw, 43vw 43vw;
-        // background-position: 109% 51%, -12% 210%, 87% -69%;
-
-        // @include base.mq(tab) {
-        //     padding: 170px 0 48px;
-        //     background-size: 105px 105px, 176px 176px, 264px 264px;
-        //     background-position: top 175px right -37px, 78px 292px, right 60px top -124px;
-        // }
         background-image: url(../img/star1.svg), url(../img/star3.svg);
         background-repeat: no-repeat;
         background-size: 18vw 18vw, 43vw 43vw;
@@ -125,14 +154,16 @@
             background-size: 105px 105px, 264px 264px;
             background-position: top 175px right -37px, right 60px top -124px;
         }
+
+        @include base.mq(pc) {
+            padding: 167px 0 70px;
+            background-size: 105px 105px, 324px 324px;
+            background-position: top 267px right 30px, right 50px top -175px;
+        }
     }
 
     &__catch1 {
         @include catch_ctn_setting;
-
-        @include base.mq(tab) {
-            font-size: base.px_to_rem(23);
-        }
     }
 
     &__catch2 {
@@ -141,7 +172,10 @@
 
         @include base.mq(tab) {
             margin-top: 40px;
-            font-size: base.px_to_rem(23);
+        }
+
+        @include base.mq(pc) {
+            margin-top: 50px;
         }
     }
 
@@ -177,6 +211,13 @@
                 height: 176px;
                 top: -32px;
                 left: 78px;
+            }
+
+            @include base.mq(pc) {
+                width: 222px;
+                height: 222px;
+                top: -50px;
+                left: 205px;
             }
         }
     }
