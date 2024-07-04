@@ -78,6 +78,103 @@
 }
 
 //////////////////////////////////////////////////////////////
+/// .p-promptScroll
+.p-promptScroll {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    left: 50%;
+    background-image: url('data:image/svg+xml;utf8, <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 101 101"><path stroke="%23ffffff" fill-opacity="0" d="m.66,17.74h0c5.71,29.69,21.25,56.6,44.11,76.4h0c3.25,2.82,8.08,2.82,11.33,0h0c22.86-19.8,38.39-46.7,44.11-76.4h0c.81-4.22-1.6-8.4-5.67-9.81h0c-28.57-9.9-59.64-9.9-88.22,0h0C2.26,9.33-.16,13.51.66,17.74Z"/></svg>');
+    background-repeat: no-repeat;
+    background-size: contain;
+    padding-top: 5px;
+    text-align: center;
+    transform: translateX(-50%);
+    animation: sway1 1.3s ease-in-out infinite;
+    filter: drop-shadow(2px 2px 3px black);
+
+    @include base.mq(tab) {
+        width: 80px;
+        height: 80px;
+        bottom: 40px;
+        padding-top: 10px;
+    }
+
+    @include base.mq(pc) {
+        filter: drop-shadow(2px 2px 3px white);
+    }
+
+    &__text {
+        font-size: 10px;
+        color: white;
+
+        @include base.mq(tab) {
+            font-size: 13px;
+        }
+    }
+
+    &__arrow {
+        position: absolute;
+        left: 50%;
+        top: 60%;
+        animation: sway2 1.3s ease-in-out infinite;
+
+        &:before {
+            content: "";
+            position: absolute;
+            width: 1px;
+            height: 40px;
+            background-color: white;
+            top: 0;
+            left: 0;
+
+            @include base.mq(tab) {
+                height: 50px;
+            }
+        }
+
+        &:after {
+            content: "";
+            position: absolute;
+            width: 1px;
+            height: 10px;
+            background-color: white;
+            top: 30px;
+            left: 0;
+            transform-origin: bottom;
+            transform: skewX(-30deg);
+
+            @include base.mq(tab) {
+                height: 15px;
+                top: 35px;
+            }
+        }
+    }
+
+    @keyframes sway1 {
+        50% {
+            transform: translateX(-50%) translateY(3px);
+        }
+
+        100% {
+            transform: translateX(-50%) translateY(0);
+        }
+    }
+
+    @keyframes sway2 {
+        50% {
+            transform: translateX(-50%) translateY(7px);
+        }
+
+        100% {
+            transform: translateX(-50%) translateY(0);
+        }
+    }
+
+}
+
+//////////////////////////////////////////////////////////////
 /// .p-secFeature
 .p-secFeature {
     padding-bottom: 13vw;
