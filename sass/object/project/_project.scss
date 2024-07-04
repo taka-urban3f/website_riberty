@@ -4,7 +4,6 @@
 
 @use "../../foundation/base";
 
-
 @mixin catch_ctn_setting {
     position: relative;
     width: fit-content;
@@ -172,6 +171,44 @@
         }
     }
 
+}
+
+//////////////////////////////////////////////////////////////
+/// .p-topBtn
+.p-topBtn {
+    position: fixed;
+    visibility: hidden;
+    display: block;
+    width: 130px;
+    height: 78px;
+    bottom: 3%;
+    right: 3%;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    border: 3px solid base.$yellow;
+    box-shadow: 4px 4px 3px 0 rgba(base.$darkBlue, 0.2);
+    backdrop-filter: blur(5px);
+    z-index: 3;
+    display: grid;
+    place-items: center;
+
+    @include base.mq(tab) {
+        width: 150px;
+        height: 90px;
+    }
+
+    &--show {
+        visibility: visible;
+    }
+
+    &__text {
+        font-size: base.px_to_rem(18);
+        color: base.$darkBlue;
+
+        @include base.mq(tab) {
+            font-size: base.px_to_rem(20);
+        }
+    }
 }
 
 //////////////////////////////////////////////////////////////
