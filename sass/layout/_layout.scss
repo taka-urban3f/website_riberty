@@ -5,6 +5,45 @@
 @use "../foundation/base";
 
 //////////////////////////////////////////////////////////////
+/// .l-loading
+.l-loading {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    color: base.$mainBlue;
+    perspective: 700px;
+    transition: opacity visibility 1s ease;
+    z-index: 4;
+
+    &--hide {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    &__img {
+        display: block;
+        width: auto;
+        margin-bottom: 10px;
+        animation: loading_anim 2s ease-in-out infinite;
+    }
+
+    @keyframes loading_anim {
+        0% {
+            transform: rotateY(0deg);
+        }
+
+        100% {
+            transform: rotateY(360deg);
+        }
+    }
+}
+
+
+//////////////////////////////////////////////////////////////
 /// .l-header
 .l-header {
     &__bar {
