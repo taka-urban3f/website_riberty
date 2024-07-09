@@ -67,11 +67,15 @@ io.observe(document.querySelector('.l-header'));
 ///////////////////////////////////////////////////////////////////////////////////
 //-----------------テキストアニメーションの処理-----------------
 
-//animation-delayの値は、u-textAnime__unit要素を跨いで累積される（index_accum変数を使用）
-//delay値を累計させたいu-textAnime__unit要素達を包含する要素にu-textAnimeを付与する
+/*animation-delayの値は、u-textAnime__unit要素を跨いで累積される（index_accum変数を使用）。
+delay値を累計させたいu-textAnime__unit要素達を包含する要素にu-textAnimeを付与する。
+u-textAnime要素にデータ属性として全体の開始ディレイタイムと
+それぞれの文字のディレイタイムを設定。単位は秒（data-ta-base-del, data-ta-each-del）*/
 const ta_elems = document.querySelectorAll('.u-textAnime');
 if (ta_elems.length >= 1) {
     for (const ta_elem of ta_elems) {
+        const base_del = parseFloat(ta_elem.dataset.taBaseDel);
+        const each_del = parseFloat(ta_elem.dataset.taEachDel);
         const unit_elems = ta_elem.querySelectorAll('.u-textAnime__unit');
         if (unit_elems.length >= 1) {
             let index_accum = 0;
@@ -81,7 +85,7 @@ if (ta_elems.length >= 1) {
                 let html = '';
 
                 each_text.forEach(function (t, i) {
-                    html += `<span class="u-textAnime__eachText" style="animation-delay:${(index_accum + i)/15}s">${t}</span>`;
+                    html += `<span class="u-textAnime__eachText" style="animation-delay:${(index_accum + i) * each_del + base_del}s">${t}</span>`;
                 });
 
                 index_accum += each_text.length;
