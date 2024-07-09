@@ -43,7 +43,9 @@ document.querySelector('.c-humBtn').addEventListener('click', function () {
 
 ///////////////////////////////////////////////////////////////////////////////////
 //-----------------「トップへ戻る」ボタンの表示・非表示処理-----------------
-function doWhenIntersect(entries) {
+
+//.l-header要素が画面外にある時だけボタンを表示させる
+function WhenIntersect_header(entries) {
     entries.forEach(function (entry) {
         if (entry.isIntersecting == false) {
             document.querySelector('.p-topBtn').classList.add('p-topBtn--show');
@@ -53,30 +55,31 @@ function doWhenIntersect(entries) {
     });
 }
 
-const options = {
+//監視オブジェクト作成
+const io_h = new IntersectionObserver(WhenIntersect_header, {
     root: null,
     rootMargin: "0px 0px",
     threshold: 0
-};
-
-const io = new IntersectionObserver(doWhenIntersect, options);
+});
 
 //.l-headerを監視対象に設定
-io.observe(document.querySelector('.l-header'));
+io_h.observe(document.querySelector('.l-header'));
 
 ///////////////////////////////////////////////////////////////////////////////////
-//-----------------テキストアニメーションの処理-----------------
+//-----------------テキストアニメーションの為の処理-----------------
 
-/*animation-delayの値は、u-textAnime__unit要素を跨いで累積される（index_accum変数を使用）。
-delay値を累計させたいu-textAnime__unit要素達を包含する要素にu-textAnimeを付与する。
-u-textAnime要素にデータ属性として全体の開始ディレイタイムと
+/*u-textAnime1__unit要素内のテキストを一文字づつspanタグで囲み、それぞれanimation-delayプロパティを値をずらしながら設定する。
+元々u-textAnime1__unit要素内にあったテキスト等は消去する。
+animation-delayの値は、u-textAnime1__unit要素を跨いで累積される（index_accum変数を使用）。
+delay値を累計させたいu-textAnime1__unit要素達を包含する要素にu-textAnime1を付与する。
+u-textAnime1要素にデータ属性として全体の開始ディレイタイムと
 それぞれの文字のディレイタイムを設定。単位は秒（data-ta-base-del, data-ta-each-del）*/
-const ta_elems = document.querySelectorAll('.u-textAnime');
-if (ta_elems.length >= 1) {
-    for (const ta_elem of ta_elems) {
-        const base_del = parseFloat(ta_elem.dataset.taBaseDel);
-        const each_del = parseFloat(ta_elem.dataset.taEachDel);
-        const unit_elems = ta_elem.querySelectorAll('.u-textAnime__unit');
+const elems_ta = document.querySelectorAll('.u-textAnime1');
+if (elems_ta.length >= 1) {
+    for (const elem_ta of elems_ta) {
+        const base_del = parseFloat(elem_ta.dataset.taBaseDel);
+        const each_del = parseFloat(elem_ta.dataset.taEachDel);
+        const unit_elems = elem_ta.querySelectorAll('.u-textAnime1__unit');
         if (unit_elems.length >= 1) {
             let index_accum = 0;
             for (const unit_elem of unit_elems) {
@@ -85,7 +88,7 @@ if (ta_elems.length >= 1) {
                 let html = '';
 
                 each_text.forEach(function (t, i) {
-                    html += `<span class="u-textAnime__eachText" style="animation-delay:${(index_accum + i) * each_del + base_del}s">${t}</span>`;
+                    html += `<span class="u-textAnime1__eachText" style="animation-delay:${(index_accum + i) * each_del + base_del}s">${t}</span>`;
                 });
 
                 index_accum += each_text.length;
@@ -97,28 +100,53 @@ if (ta_elems.length >= 1) {
     }
 }
 
-function textAnimWhenIntersect(entries) {
+//u-textAnime要素が画面内に入ったらアニメーション用のクラスを付与
+function WhenIntersect_textAnim(entries) {
     entries.forEach(function (entry) {
         if (entry.isIntersecting) {
-            entry.target.classList.add('u-textAnime--appear');
+            entry.target.classList.add('u-textAnime1--do');
         }
     });
 }
 
-const ta_options = {
+//監視オブジェクト作成
+const io_ta = new IntersectionObserver(WhenIntersect_textAnim, {
     root: null,
     rootMargin: "-200px 0px",
     threshold: 0
-};
-
-const ta_io = new IntersectionObserver(textAnimWhenIntersect, ta_options);
+});
 
 //u-textAnimeを監視対象に設定。ローディング画面を消す時（loadイベント時）に呼び出す。
-function start_observe() {
-    if (ta_elems.length >= 1) {
-        for (const ta_elem of ta_elems) {
-            ta_io.observe(ta_elem);
+function start_observe_ta() {
+    if (elems_ta.length >= 1) {
+        for (const elem_ta of elems_ta) {
+            io_ta.observe(elem_ta);
         }
+    }
+}
+
+///////////////////////////////////////////////////////////////////////////////////
+//-----------------アニメーションの為のクラスを付与-----------------
+function WhenIntersect_swayAnim(entries) {
+    entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('u-swayAnime--do');
+        }
+    });
+}
+
+//監視オブジェクト作成
+const io_sa = new IntersectionObserver(WhenIntersect_swayAnim, {
+    root: null,
+    rootMargin: "-200px 0px",
+    threshold: 0
+});
+
+//u-swayAnimeを監視対象に設定。ローディング画面を消す時（loadイベント時）に呼び出す。
+function start_observe_sa() {
+    const elems_sa = document.querySelectorAll('.u-swayAnime');
+    for(const elem_sa of elems_sa) {
+        io_sa.observe(elem_sa);
     }
 }
 
@@ -131,20 +159,24 @@ window.addEventListener('load', function () {
 
     //loadが完了してなおかつ最小ローディング時間を経過していれば直ちに、
     //最小ローディング時間を経過していない場合、残り時間経過後に実行する処理。
-    //スクロール可能にする・ローディング画面を消す・テキストアニメーションの監視対象を監視開始
+    //スクロール可能にする・ローディング画面を消す・アニメーション要素等の監視対象を監視開始
     if (shortageTime <= 0) {
         document.removeEventListener('touchmove', noscroll);
         document.removeEventListener('wheel', noscroll);
-        
+
         document.querySelector('.l-loading').classList.add('l-loading--hide');
-        start_observe();        
+
+        start_observe_ta();
+        start_observe_sa() 
     } else {
         setTimeout(function () {
             document.removeEventListener('touchmove', noscroll);
             document.removeEventListener('wheel', noscroll);
 
             document.querySelector('.l-loading').classList.add('l-loading--hide');
-            start_observe();            
+
+            start_observe_ta();
+            start_observe_sa() 
         }, shortageTime);
     }
 });
