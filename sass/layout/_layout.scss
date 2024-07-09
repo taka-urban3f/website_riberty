@@ -99,6 +99,10 @@
         &__li:nth-of-type(2) {
             margin-right: 400px;
         }
+
+        &__a:hover {
+            color: base.$darkBlue;
+        }
     }
 
     &__hero {
@@ -143,6 +147,7 @@
 
         &__ctn {
             display: inline-block;
+            vertical-align: middle;
         }
 
         &__img {
@@ -201,6 +206,10 @@
         gap: 42px 0;
         font-size: base.px_to_rem(20);
         color: base.$mainBlue;
+    }
+
+    &__a:hover {
+        color: base.$darkBlue;
     }
 }
 

@@ -145,9 +145,17 @@
     width: fit-content;
     min-width: 294px;
     padding: 18px 37px;
-    background-color: base.$darkBlue;
+    background-image: radial-gradient(base.$darkBlue 50%, white);
+    background-size: 200% 200%;
+    background-position: center;
+    background-repeat: no-repeat;
     border-radius: 27px;
     text-align: center;
     font-size: base.px_to_rem(24);
     color: white;
+    transition: background-size 0.3s ease;
+
+    &:hover {
+        background-size: 100% 100%;
+    }
 }

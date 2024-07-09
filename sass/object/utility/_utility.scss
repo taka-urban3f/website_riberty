@@ -102,3 +102,20 @@
         }
     }
 }
+
+//////////////////////////////////////////////////////////////
+/// .u-skewAnime
+.u-skewAnime {
+    $this: &;
+    overflow: hidden;
+
+    &__target {
+        transition: transform 0.7s ease;
+        transform-origin: -50px bottom;
+        transform: translateY(45%) skewY(30deg);
+
+        #{$this}--do & {
+            transform: skewY(0);
+        }
+    }
+}

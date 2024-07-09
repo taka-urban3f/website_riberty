@@ -80,6 +80,7 @@ function generat_span(className) {
         for (const elem_ta of elems_ta) {
             const base_del = parseFloat(elem_ta.dataset.taBaseDel);
             const each_del = parseFloat(elem_ta.dataset.taEachDel);
+            console.log(each_del);
             const unit_elems = elem_ta.querySelectorAll('.' + className + '__unit');
             if (unit_elems.length >= 1) {
                 let index_accum = 0;
@@ -121,7 +122,7 @@ function WhenIntersect_textAnim(entries) {
 //監視オブジェクト作成 （アニメーションの種類によってタイミングは違う）
 const io_ta1 = new IntersectionObserver(WhenIntersect_textAnim, {
     root: null,
-    rootMargin: "-200px 0px",
+    rootMargin: "-100px 0px",
     threshold: 0
 });
 
@@ -154,7 +155,11 @@ function start_observe_ta() {
 function WhenIntersect_swayAnim(entries) {
     entries.forEach(function (entry) {
         if (entry.isIntersecting) {
-            entry.target.classList.add('u-swayAnime--do');
+            if (entry.target.classList.contains('u-swayAnime')) {
+                entry.target.classList.add('u-swayAnime--do');
+            } else if (entry.target.classList.contains('u-skewAnime')) {
+                entry.target.classList.add('u-skewAnime--do');
+            }
         }
     });
 }
@@ -162,13 +167,19 @@ function WhenIntersect_swayAnim(entries) {
 //監視オブジェクト作成
 const io_sa = new IntersectionObserver(WhenIntersect_swayAnim, {
     root: null,
-    rootMargin: "-200px 0px",
+    rootMargin: "-100px 0px",
     threshold: 0
 });
 
 //u-swayAnimeを監視対象に設定。ローディング画面を消す時（loadイベント時）に呼び出す。
 function start_observe_sa() {
-    const elems_sa = document.querySelectorAll('.u-swayAnime');
+    let elems_sa;
+    elems_sa = document.querySelectorAll('.u-swayAnime');
+    for (const elem_sa of elems_sa) {
+        io_sa.observe(elem_sa);
+    }
+
+    elems_sa = document.querySelectorAll('.u-skewAnime');
     for (const elem_sa of elems_sa) {
         io_sa.observe(elem_sa);
     }
