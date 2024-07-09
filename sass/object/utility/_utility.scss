@@ -33,21 +33,27 @@
     $this: &;
 
     &__eachText {
+        display: inline-block;
         opacity: 0;
 
         #{$this}--do & {
-            animation: fade 1s ease forwards;
+            animation: up_fade 0.7s ease forwards;
         }
 
     }
 
-    @keyframes fade {
+    @keyframes up_fade {
         0% {
             opacity: 0;
         }
 
+        40% {
+            transform: translateY(-15px);
+        }
+
         100% {
             opacity: 1;
+            transform: translateY(0);
         }
     }
 }
@@ -58,7 +64,7 @@
     transform-origin: top;
 
     &--do {
-        animation: sway 2s ease-out ;
+        animation: sway 2s ease-out;
     }
 
     @keyframes sway {
@@ -91,7 +97,7 @@
             transform: rotate(-2deg);
         }
 
-        70%{
+        70% {
             transform: rotate(0);
         }
     }
