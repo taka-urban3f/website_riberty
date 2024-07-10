@@ -21,25 +21,41 @@ document.addEventListener('wheel', noscroll, {
 });
 
 ///////////////////////////////////////////////////////////////////////////////////
-//-----------------ハンバーガーボタンをクリックした時の処理-----------------
-let menu_open = 0;
+//-----------------ハンバーガーボタンやメニューをクリックした時の処理-----------------
+let menu_status_open = 0;
+
+function open_menu() {
+    document.querySelector('.c-humBtn').classList.add('c-humBtn--open');
+    document.querySelector('.l-menu').classList.add('l-menu--open');
+    document.querySelector('body').style.overflow = 'hidden';
+    document.querySelector('.c-humBtn__text').textContent = '閉じる';
+    menu_status_open = 1;
+}
+
+function close_menu() {
+    document.querySelector('.c-humBtn').classList.remove('c-humBtn--open');
+    document.querySelector('.l-menu').classList.remove('l-menu--open');
+    document.querySelector('body').style.overflow = null;
+    document.querySelector('.c-humBtn__text').textContent = 'メニュー';
+    menu_status_open = 0;
+}
 
 document.querySelector('.c-humBtn').addEventListener('click', function () {
-    if (menu_open == 0) {
-        document.querySelector('.c-humBtn').classList.add('c-humBtn--open');
-        document.querySelector('.l-menu').classList.add('l-menu--open');
-        document.querySelector('body').style.overflow = 'hidden';
-        document.querySelector('.c-humBtn__text').textContent = '閉じる';
-
-        menu_open = 1;
+    if (menu_status_open == 0) {
+        open_menu();
     } else {
-        document.querySelector('.c-humBtn').classList.remove('c-humBtn--open');
-        document.querySelector('.l-menu').classList.remove('l-menu--open');
-        document.querySelector('body').style.overflow = null;
-        document.querySelector('.c-humBtn__text').textContent = 'メニュー';
-        menu_open = 0;
+        close_menu();
     }
 });
+
+const elems_menu_item = document.querySelectorAll('.l-menu__a');
+if (elems_menu_item.length >= 1) {
+    for (const elem of elems_menu_item) {
+        elem.addEventListener('click', function () {
+            close_menu();
+        });
+    }
+}
 
 ///////////////////////////////////////////////////////////////////////////////////
 //-----------------「トップへ戻る」ボタンの表示・非表示処理-----------------
